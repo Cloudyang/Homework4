@@ -1,0 +1,11 @@
+描述枚举的值的中文信息 测试定义用一个People枚举
+练习了针对枚举的扩展方法，可以获取枚举值的中文描述GetRemark,GetALLRemark方法
+
+增加验证特性有RequiredValidate(非空)  MobileValidate(手机号格式) EmailValidate(格式) 字符串长度LengthValidate(最大最小)
+上述这些方法基本是模仿老师课堂教程 定义了抽象类AbstractValidateAttribute
+进一步学习Attribute类发现有自带虚方法Match。这样完全可以无视AbstractValidateAttribute类。定义如下特性类
+RequiredMatch(非空)  MobileMatch(手机号格式) EmailMatch(格式) 字符串长度LengthMatch(最大最小)
+
+通过练习UnityAop基于特性方式实现简单配置 找到特性声明也可以放在实现类。发现报错需要中止管道时，可以通过IMethodInvocation.CreateExceptionMethodReturn报异常处理
+
+找出全部不符合规则的数据 第一次想到用List,后来想想属性名也最好能提示一下。就直接用Dictionary
